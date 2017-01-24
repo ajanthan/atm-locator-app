@@ -11,5 +11,6 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ge
 #Verifying backend services
 
 ```
-curl -v -X GET http://localhost:8080/op/filename.png > result-opstream.png
+curl http://localhost:8082/geolocation/zipcode/1/2
+{"country":"US","state":"CA","zipcode":"95321"}
 ```
