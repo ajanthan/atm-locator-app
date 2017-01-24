@@ -11,14 +11,14 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ge
 
 #Sample curl commands 
 
-## (http://localhost:8082/geolocation/zipcode/{longitude}/{latitude} 
+### http://localhost:8082/geolocation/zipcode/{longitude}/{latitude} 
 ```
 curl http://localhost:8082/geolocation/zipcode/11111/22222 
 
 {"country":"US","state":"CA","zipcode":"95321"}
 ```
 
-## (http://localhost:8081/bankcode/{zipcode}
+### http://localhost:8081/bankcode/{zipcode}
 ```
 url -X GET http://localhost:8081/bankcode/95321
 
