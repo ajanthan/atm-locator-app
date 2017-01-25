@@ -35,20 +35,56 @@ import javax.ws.rs.core.Response;
  *
  * @since 1.0.0-SNAPSHOT
  */
+
+//var json2 = [
+//            {
+//                "title": "Stockholm",
+//                "lat": 37.776414,
+//                "lng": -122.451382,
+//                "description": "Stockholm is the capital and the largest city of Sweden and constitutes the most populated urban area in Scandinavia with a population of 2.1 million in the metropolitan area (2010)"
+//              },
+//              {
+//                "title": "Oslo",
+//                "lat": 37.790795,
+//                "lng": -122.413445,
+//                "description": "Oslo is a municipality, and the capital and most populous city of Norway with a metropolitan population of 1,442,318 (as of 2010)."
+//              },
+//              {
+//                "title": "Copenhagen",
+//                "lat": 37.788353,
+//                "lng": -122.431469,
+//                "description": "Copenhagen is the capital of Denmark and its most populous city, with a metropolitan population of 1,931,467 (as of 1 January 2012)."
+//              }
+//            ]
 @Path("/bankcode")
 public class BankCodeService {
-    Map<String, List<BankCode>> coderepo = new HashMap<>();
+    Map<String, List<ATMLocation>> coderepo = new HashMap<>();
 
     public BankCodeService() {
         super();
-        BankCode bankCode1 = new BankCode("0001", "95321");
-        BankCode bankCode2 = new BankCode("0002", "95321");
-        BankCode bankCode3 = new BankCode("0003", "95321");
-        List<BankCode> bankCodeArray = new ArrayList<>();
+        ATMLocation bankCode1 = new ATMLocation("0001","XYZ ATM A", "37.776414","-122.413445","94111","XYZ ATM A");
+        ATMLocation bankCode2 = new ATMLocation("0001","XYZ ATM B", "37.790795","-122.451382","94111","XYZ ATM B");
+        ATMLocation bankCode3 = new ATMLocation("0001","XYZ ATM C", "37.788353","-122.431469","94111","XYZ ATM C");
+        
+        //37.774107, -122.403231
+        //37.761555, -122.399969
+        //37.753344, -122.396278
+        ATMLocation bankCode4 = new ATMLocation("0002","XYZ ATM G", "37.774107","-122.403231","94105","XYZ ATM G");
+        ATMLocation bankCode5 = new ATMLocation("0002","XYZ ATM H", "37.761555","-122.39996","94105","XYZ ATM H");
+        ATMLocation bankCode6 = new ATMLocation("0002","XYZ ATM Y", "37.753344","-122.396278","94105","XYZ ATM Y");
+       
+        
+        List<ATMLocation> bankCodeArray = new ArrayList<>();
         bankCodeArray.add(bankCode1);
         bankCodeArray.add(bankCode2);
         bankCodeArray.add(bankCode3);
-        coderepo.put("95321", bankCodeArray);
+        coderepo.put("94111", bankCodeArray);
+        
+        List<ATMLocation> bankCodeArray2 = new ArrayList<>();
+        bankCodeArray2.add(bankCode4);
+        bankCodeArray2.add(bankCode5);
+        bankCodeArray2.add(bankCode6);
+        coderepo.put("94105", bankCodeArray2);
     }
 
     @GET
@@ -57,7 +93,7 @@ public class BankCodeService {
     public Response bankcodes(@PathParam("zipcode") String zipcode) {
         // TODO: Implementation for HTTP GET request
         System.out.println("retriving bank codes");
-        return Response.ok().entity(coderepo.get("95321")).cookie(new NewCookie("zipcode", zipcode))
+        return Response.ok().entity(coderepo.get(zipcode)).cookie(new NewCookie("zipcode", zipcode))
                 .build();
 
     }
