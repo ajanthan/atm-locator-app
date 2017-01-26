@@ -33,11 +33,11 @@ curl http://localhost:8082/geolocation/zipcode/11111/22222
 
 e.g
 ```
-curl -X curl -X GET http://localhost:8082/bankcode/94111
+curl -X curl -X GET http://localhost:8083/bankcode/94111
 
 [{"code":"COO1","zip":"94111"},{"code":"COO2","zip":"94111"}]
 
-curl -X curl -X GET http://localhost:8082/bankcode/94105
+curl -X curl -X GET http://localhost:8083/bankcode/94105
 
 [{"code":"COO3","zip":"94105"},{"code":"COO4","zip":"94105"}]
 ```
