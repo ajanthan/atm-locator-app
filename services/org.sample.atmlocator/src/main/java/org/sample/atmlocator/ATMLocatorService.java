@@ -64,16 +64,16 @@ public class ATMLocatorService {
 
     public ATMLocatorService() {
         super();
-        ATMLocation bankCode1 = new ATMLocation("COO1","XYZ ATM A", "37.776414","-122.413445","94111","XYZ ATM A");
-        ATMLocation bankCode2 = new ATMLocation("COO1","XYZ ATM B", "37.790795","-122.451382","94111","XYZ ATM B");
-        ATMLocation bankCode3 = new ATMLocation("COO1","XYZ ATM C", "37.788353","-122.431469","94111","XYZ ATM C");
+        ATMLocation bankCode1 = new ATMLocation("COO1","5 mi · 100 Pine St(877) 242-7372", "37.776414","-122.413445","94111","XYZ ATM A Open 24 /Long lines and dismissive bankers");
+        ATMLocation bankCode2 = new ATMLocation("COO1","165 Jackson St (800) 939935", "37.790795","-122.451382","94111","XYZ ATM B /Very bad customer service. If you want just cash, the service is ok but if you need to talk with a representative be ready for impolines and rudeness.");
+        ATMLocation bankCode3 = new ATMLocation("COO1","700 Market St (415) 274-3500", "37.788353","-122.431469","94111","XYZ ATM C /Good service");
         
         //37.774107, -122.403231
         //37.761555, -122.399969
         //37.753344, -122.396278
-        ATMLocation bankCode4 = new ATMLocation("COO2","XYZ ATM G", "37.774107","-122.403231","94105","XYZ ATM G");
-        ATMLocation bankCode5 = new ATMLocation("COO2","XYZ ATM H", "37.761555","-122.39996","94105","XYZ ATM H");
-        ATMLocation bankCode6 = new ATMLocation("COO2","XYZ ATM Y", "37.753344","-122.396278","94105","XYZ ATM Y");
+        ATMLocation bankCode4 = new ATMLocation("COO2","Mission St(415) 536-3815", "37.774107","-122.403231","94105","XYZ ATM G / If this branch is the concept of what a  branch is going to look like, then it is going to be a bleak future. It's a really bad joke to Chase customers.");
+        ATMLocation bankCode5 = new ATMLocation("COO2","2500 Mission St (415) 647-8069", "37.761555","-122.39996","94105","XYZ ATM H / Awsome!!!!");
+        ATMLocation bankCode6 = new ATMLocation("COO2","3749 Buchanan St", "37.753344","-122.396278","94105","XYZ ATM Y / eware... this branch is not to be trusted!");
        
         
         List<ATMLocation> bankCodeArray = new ArrayList<>();
