@@ -6,7 +6,7 @@
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.geo-1.0.0-SNAPSHOT.jar
 ```
 
-### Bank code service starts on port 8082
+### Bank code service starts on port 8083
 ```
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.bankcode-1.0.0-SNAPSHOT.jar
 ```
