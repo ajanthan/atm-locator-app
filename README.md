@@ -1,13 +1,22 @@
 #Running Sample backend services with MS4J
-## Bank code service starts on port 8081
+
+
+## Geo location service starts on port 8081
+```
+java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.geo-1.0.0-SNAPSHOT.jar
+```
+
+## Bank code service starts on port 8082
 ```
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.bankcode-1.0.0-SNAPSHOT.jar
 ```
 
-## Geo location service starts on port 8082
+## ATM Locator service starts on port 8084
 ```
-java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.geo-1.0.0-SNAPSHOT.jar
+java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.atmlocator-1.0.0-SNAPSHOT.jar
 ```
+
+
 
 #Sample curl commands 
 
@@ -18,9 +27,25 @@ curl http://localhost:8082/geolocation/zipcode/11111/22222
 {"country":"US","state":"CA","zipcode":"95321"}
 ```
 
-### http://localhost:8081/bankcode/{zipcode}
-```
-url -X GET http://localhost:8081/bankcode/95321
 
-[{"code":"0001","zip":"95321"},{"code":"0002","zip":"95321"},{"code":"0003","zip":"95321"}]
+
+### (Bank code) GET http://localhost:8083/bankcode/{zipcode}
+
+e.g
+```
+curl -X curl -X GET http://localhost:8082/bankcode/94111
+
+[{"code":"COO1","zip":"94111"},{"code":"COO2","zip":"94111"}]
+
+curl -X curl -X GET http://localhost:8082/bankcode/94105
+
+[{"code":"COO3","zip":"94105"},{"code":"COO4","zip":"94105"}]
+```
+
+### (ATM Locator) POST http://localhost:8084/atmlocator/atminfo 
+
+e.g
+```
+curl -H "Content-Type: application/json" -X POST -d '{"code":"COO1","zip":"94111"}' http://localhost:8084/atmlocator/atminfo
+[{"code":"COO1","title":"XYZ ATM A","lat":"37.776414","lng":"-122.413445","zip":"94111","description":"XYZ ATM A"},{"code":"COO1","title":"XYZ ATM B","lat":"37.790795","lng":"-122.451382","zip":"94111","description":"XYZ ATM B"},{"code":"COO1","title":"XYZ ATM C","lat":"37.788353","lng":"-122.431469","zip":"94111","description":"XYZ ATM C"}]
 ```
