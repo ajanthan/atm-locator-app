@@ -1,0 +1,5 @@
+package org.sample.atmlocator;
+
+public class BankCodeRequest {
+    BankCode [] bankcodes;
+}

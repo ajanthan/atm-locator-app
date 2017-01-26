@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/atmlocator" name="ATMLocator" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log level="full">
+                <property name="value" value="property_value"/>
+            </log>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://localhost:8083/bankcode/94111"/>
+                </endpoint>
+            </call>
+            <log level="full">
+                <property name="value" value="property_value"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

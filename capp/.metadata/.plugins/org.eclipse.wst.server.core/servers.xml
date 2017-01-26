@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server hostname="localhost" id="IE6" name="IE6" runtime-id="WSO2 Carbon 4.4 based server" server-type="org.wso2.developerstudio.eclipse.carbon.server44" server-type-id="org.wso2.developerstudio.eclipse.carbon.server44" start-timeout="600" stop-timeout="15" timestamp="0">
+    <map carbon.browser="true" carbon.debug="5001" carbon.hotupdate="true" carbon.http="9763" carbon.https="9443" carbon.offset="0" key="generic_server_instance_properties" osgi.console="false" synapse.transport.http="8280" synapse.transport.https="8243"/>
+  </server>
+</servers>

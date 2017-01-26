@@ -21,7 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -56,46 +58,52 @@ import javax.ws.rs.core.Response;
 //                "description": "Copenhagen is the capital of Denmark and its most populous city, with a metropolitan population of 1,931,467 (as of 1 January 2012)."
 //              }
 //            ]
-@Path("/bankcode")
-public class BankCodeService {
+@Path("/atmlocator")
+public class ATMLocatorService {
     Map<String, List<ATMLocation>> coderepo = new HashMap<>();
 
-    public BankCodeService() {
+    public ATMLocatorService() {
         super();
-        ATMLocation bankCode1 = new ATMLocation("0001","XYZ ATM A", "37.776414","-122.413445","94111","XYZ ATM A");
-        ATMLocation bankCode2 = new ATMLocation("0001","XYZ ATM B", "37.790795","-122.451382","94111","XYZ ATM B");
-        ATMLocation bankCode3 = new ATMLocation("0001","XYZ ATM C", "37.788353","-122.431469","94111","XYZ ATM C");
+        ATMLocation bankCode1 = new ATMLocation("COO1","XYZ ATM A", "37.776414","-122.413445","94111","XYZ ATM A");
+        ATMLocation bankCode2 = new ATMLocation("COO1","XYZ ATM B", "37.790795","-122.451382","94111","XYZ ATM B");
+        ATMLocation bankCode3 = new ATMLocation("COO1","XYZ ATM C", "37.788353","-122.431469","94111","XYZ ATM C");
         
         //37.774107, -122.403231
         //37.761555, -122.399969
         //37.753344, -122.396278
-        ATMLocation bankCode4 = new ATMLocation("0002","XYZ ATM G", "37.774107","-122.403231","94105","XYZ ATM G");
-        ATMLocation bankCode5 = new ATMLocation("0002","XYZ ATM H", "37.761555","-122.39996","94105","XYZ ATM H");
-        ATMLocation bankCode6 = new ATMLocation("0002","XYZ ATM Y", "37.753344","-122.396278","94105","XYZ ATM Y");
+        ATMLocation bankCode4 = new ATMLocation("COO2","XYZ ATM G", "37.774107","-122.403231","94105","XYZ ATM G");
+        ATMLocation bankCode5 = new ATMLocation("COO2","XYZ ATM H", "37.761555","-122.39996","94105","XYZ ATM H");
+        ATMLocation bankCode6 = new ATMLocation("COO2","XYZ ATM Y", "37.753344","-122.396278","94105","XYZ ATM Y");
        
         
         List<ATMLocation> bankCodeArray = new ArrayList<>();
         bankCodeArray.add(bankCode1);
         bankCodeArray.add(bankCode2);
         bankCodeArray.add(bankCode3);
-        coderepo.put("94111", bankCodeArray);
+        coderepo.put("COO1", bankCodeArray);
         
         List<ATMLocation> bankCodeArray2 = new ArrayList<>();
         bankCodeArray2.add(bankCode4);
         bankCodeArray2.add(bankCode5);
-        bankCodeArray2.add(bankCode6);
-        coderepo.put("94105", bankCodeArray2);
+        coderepo.put("COO3", bankCodeArray2);
+        
+        List<ATMLocation> bankCodeArray3 = new ArrayList<>();
+        bankCodeArray3.add(bankCode4);
+        bankCodeArray3.add(bankCode5);
+        bankCodeArray3.add(bankCode6);
+        coderepo.put("COO4", bankCodeArray3);
     }
 
-    @GET
-    @Path("/{zipcode}")
+    //curl -H "Content-Type: application/json" -X POST -d '{"code":"COO2","zip":"94105"}' http://localhost:8084/atmlocator/atminfo
+    @POST
+    @Path("/atminfo")
+    @Consumes("application/json")
     @Produces({ "application/json", "text/xml" })
-    public Response bankcodes(@PathParam("zipcode") String zipcode) {
+    public Response atminfo(BankCode bankcode ) {
         // TODO: Implementation for HTTP GET request
-        System.out.println("retriving bank codes");
-        return Response.ok().entity(coderepo.get(zipcode)).cookie(new NewCookie("zipcode", zipcode))
+        System.out.println("retriving ATM information from"+bankcode.getCode() +"|" + bankcode.getZip());
+        return Response.ok().entity(coderepo.get(bankcode.getCode())).cookie(new NewCookie("bankcode", bankcode.getCode()))
                 .build();
 
     }
-
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/atmlocator" name="ATMLocator" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <log level="full">
+                <property name="value" value="property_value"/>
+            </log>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://localhost:8083/bankcode/94111"/>
+                </endpoint>
+            </call>
+            <log level="custom">
+                <property name="value" value="property_value#############"/>
+                <property expression="json-eval($.)" name="value"/>
+            </log>
+            <iterate expression="//jsonElement" id="atmLocatorItr">
+                <target>
+                    <sequence>
+                        <payloadFactory media-type="json">
+                            <format>{"code":"$1","zip":"$2"}</format>
+                            <args>
+                                <arg evaluator="xml" expression="//code"/>
+                                <arg evaluator="xml" expression="//zip"/>
+                            </args>
+                        </payloadFactory>
+                        <call>
+                            <endpoint>
+                                <http method="post" uri-template="http://localhost:8084/atmlocator/atminfo"/>
+                            </endpoint>
+                        </call>
+                        <loopback/>
+                    </sequence>
+                </target>
+            </iterate>
+        </inSequence>
+        <outSequence>
+            <log level="custom">
+                <property name="RESPONSE-ATM-LOCATOR" value="property_value#############"/>
+                <property expression="json-eval($.)" name="RESPONSE-ATM-LOCATOR"/>
+            </log>
+            <property name="rootElement" scope="default">
+                <rootElement/>
+            </property>
+            <aggregate id="atmLocatorItr">
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete enclosingElementProperty="rootElement" expression="//jsonElement">
+                    <log level="custom">
+                        <property name="AGGREGRATE" value="property_value#############"/>
+                    </log>
+                    <payloadFactory media-type="xml">
+                        <format>
+                            <jsonElement>$1</jsonElement>
+                        </format>
+                        <args>
+                            <arg evaluator="xml" expression="//atmLocatorItr"/>
+                        </args>
+                    </payloadFactory>
+                    <log level="full">
+                        <property name="AFTER TRANFORM" value="property_value#############"/>
+                    </log>
+                    <drop/>
+                </onComplete>
+            </aggregate>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/atmlocator" name="ATMLocator" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST GET">
+        <inSequence>
+            <log level="full">
+                <property name="value" value="property_value"/>
+            </log>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://localhost:8083/bankcode/94111"/>
+                </endpoint>
+            </call>
+            <log level="custom">
+                <property name="value" value="property_value#############"/>
+                <property expression="json-eval($.)" name="value"/>
+            </log>
+            <iterate expression="//jsonElement">
+                <target>
+                    <sequence>
+                        <payloadFactory media-type="json">
+                            <format>{"code":"COO1","zip":"94111"}</format>
+                            <args>
+                                <arg evaluator="xml" expression="//code"/>
+                                <arg evaluator="xml" expression="//zip"/>
+                            </args>
+                        </payloadFactory>
+                        <call>
+                            <endpoint>
+                                <http method="post" uri-template="http://localhost:8084/atmlocator/atminfo"/>
+                            </endpoint>
+                        </call>
+                        <log level="custom">
+                            <property name="RESPONSE-ATM-LOCATOR" value="property_value#############"/>
+                            <property expression="json-eval($.)" name="RESPONSE-ATM-LOCATOR"/>
+                        </log>
+                    </sequence>
+                </target>
+            </iterate>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

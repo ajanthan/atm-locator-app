@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;wso2con/service&apos; to &apos;services&apos;" description="Rename resource &apos;service&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="service" name="services" stamp="1485383908599" updateReferences="true"/>
+</session>

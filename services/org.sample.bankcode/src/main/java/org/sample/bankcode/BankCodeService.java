@@ -63,7 +63,7 @@ public class BankCodeService {
     @Produces({ "application/json", "text/xml" })
     public Response bankcodes(@PathParam("zipcode") String zipcode) {
         // TODO: Implementation for HTTP GET request
-        System.out.println("retriving bank codes !!! json array");
+        System.out.println("retriving bank codes !!! json array" +zipcode);
         return Response.ok().entity(coderepo.get(zipcode)).cookie(new NewCookie("zipcode", zipcode))
                 .build();
 

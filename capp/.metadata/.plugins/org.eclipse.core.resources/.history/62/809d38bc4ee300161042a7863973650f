@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/ws/rs/javax.ws.rs-api/2.0/javax.ws.rs-api-2.0.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/msf4j/msf4j-core/2.1.0/msf4j-core-2.1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/messaging/org.wso2.carbon.messaging/1.0.6/org.wso2.carbon.messaging-1.0.6.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-log4j12/1.6.0/slf4j-log4j12-1.6.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar"/>
+  <classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/transport/org.wso2.carbon.transport.http.netty/2.1.4/org.wso2.carbon.transport.http.netty-2.1.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-common/4.0.30.Final/netty-common-4.0.30.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-buffer/4.0.30.Final/netty-buffer-4.0.30.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-transport/4.0.30.Final/netty-transport-4.0.30.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-handler/4.0.30.Final/netty-handler-4.0.30.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec/4.0.30.Final/netty-codec-4.0.30.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/netty/netty-codec-http/4.0.30.Final/netty-codec-http-4.0.30.Final.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.core/5.1.0/org.wso2.carbon.core-5.1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-pool/wso2/commons-pool/1.5.6.wso2v1/commons-pool-1.5.6.wso2v1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/orbit/com/lmax/disruptor/3.3.2.wso2v2/disruptor-3.3.2.wso2v2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/orbit/org/yaml/snakeyaml/1.16.0.wso2v1/snakeyaml-1.16.0.wso2v1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/msf4j/jaxrs-delegates/2.1.0/jaxrs-delegates-2.1.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-codec/commons-codec/1.9/commons-codec-1.9.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/servicemix/bundles/org.apache.servicemix.bundles.commons-beanutils/1.8.3_2/org.apache.servicemix.bundles.commons-beanutils-1.8.3_2.jar"/>
+  <classpathentry kind="var" path="M2_REPO/commons-io/wso2/commons-io/2.4.0.wso2v1/commons-io-2.4.0.wso2v1.jar"/>
+</classpath>

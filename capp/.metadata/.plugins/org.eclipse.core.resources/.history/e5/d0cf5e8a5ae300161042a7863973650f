@@ -1,0 +1,14 @@
+package org.sample.atmlocator;
+
+public class BankCodeRequest {
+    BankCode[] bankcodes;
+
+    public BankCode[] getBankcodes() {
+        return bankcodes;
+    }
+
+    public void setBankcodes(BankCode[] bankcodes) {
+        this.bankcodes = bankcodes;
+    }
+
+}

@@ -1,0 +1,54 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<rootElement>
+			<jsonElement>
+				<code>COO2</code>
+				<title>XYZ ATM G</title>
+				<lat>37.774107</lat>
+				<lng>-122.403231</lng>
+				<zip>94105</zip>
+				<description>XYZ ATM G</description>
+			</jsonElement>
+			<jsonElement>
+				<code>COO2</code>
+				<title>XYZ ATM H</title>
+				<lat>37.761555</lat>
+				<lng>-122.39996</lng>
+				<zip>94105</zip>
+				<description>XYZ ATM H</description>
+			</jsonElement>
+			<jsonElement>
+				<code>COO2</code>
+				<title>XYZ ATM Y</title>
+				<lat>37.753344</lat>
+				<lng>-122.396278</lng>
+				<zip>94105</zip>
+				<description>XYZ ATM Y</description>
+			</jsonElement>
+			<jsonElement>
+				<code>COO1</code>
+				<title>XYZ ATM A</title>
+				<lat>37.776414</lat>
+				<lng>-122.413445</lng>
+				<zip>94111</zip>
+				<description>XYZ ATM A</description>
+			</jsonElement>
+			<jsonElement>
+				<code>COO1</code>
+				<title>XYZ ATM B</title>
+				<lat>37.790795</lat>
+				<lng>-122.451382</lng>
+				<zip>94111</zip>
+				<description>XYZ ATM B</description>
+			</jsonElement>
+			<jsonElement>
+				<code>COO1</code>
+				<title>XYZ ATM C</title>
+				<lat>37.788353</lat>
+				<lng>-122.431469</lng>
+				<zip>94111</zip>
+				<description>XYZ ATM C</description>
+			</jsonElement>
+		</rootElement>
+	</soapenv:Body>
+</soapenv:Envelope>
