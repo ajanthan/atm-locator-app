@@ -49,6 +49,10 @@ e.g
 curl -H "Content-Type: application/json" -X POST -d '{"code":"COO1","zip":"94111"}' http://localhost:8084/atmlocator/atminfo
 [{"code":"COO1","title":"XYZ ATM A","lat":"37.776414","lng":"-122.413445","zip":"94111","description":"XYZ ATM A"},{"code":"COO1","title":"XYZ ATM B","lat":"37.790795","lng":"-122.451382","zip":"94111","description":"XYZ ATM B"},{"code":"COO1","title":"XYZ ATM C","lat":"37.788353","lng":"-122.431469","zip":"94111","description":"XYZ ATM C"}]
 ```
+## ESB integration (testing purpose only)
+http://ESB-HOST:ESB-HOST/atmlocator/94111 
+or
+http://ESB-HOST:ESB-HOST/atmlocator/94111
 
 URL site
 http://192.168.99.1:8281/atmlocator-1.0/findatm/94111
