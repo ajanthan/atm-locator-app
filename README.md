@@ -57,5 +57,6 @@ http://ESB-HOST:ESB-HOST/atmlocator/94111
 ```
 ## URL site
 ```
-http://IE-6-HOST:IE-6-PORT/atmlocator-1.0/findatm/94111
+http://IE-6-HOST:IE-6-PORT/atmlocator-1.0/
 ```
+![alt tag](https://github.com/dushansachinda/wso2con/tree/master/web-view.png)
