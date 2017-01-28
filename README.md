@@ -59,4 +59,5 @@ http://ESB-HOST:ESB-HOST/atmlocator/94111
 ```
 http://IE-6-HOST:IE-6-PORT/atmlocator-1.0/
 ```
+![Alt text](/images/web-view.png?raw=true "Optional Title")
 ![alt tag](https://github.com/dushansachinda/wso2con/tree/master/images/web-view.png)
