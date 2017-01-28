@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="atmLocatorResponseOutSeq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="custom">
+        <property name="RESPONSE-ATM-LOCATOR" value="property_value#############"/>
+        <property expression="json-eval($.)" name="RESPONSE-ATM-LOCATOR"/>
+    </log>
+    <property name="rootElement" scope="default">
+        <rootElement xmlns=""/>
+    </property>
+    <aggregate id="atmLocatorItr">
+        <completeCondition>
+            <messageCount max="-1" min="-1"/>
+        </completeCondition>
+        <onComplete expression="//jsonElement" xmlns:ns3="http://org.apache.synapse/xsd" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+            <log level="full">
+                <property name="AGGREGRATE" value="property_value#############"/>
+            </log>
+            <payloadFactory media-type="xml">
+                <format>
+                    <jsonArray xmlns="">$1</jsonArray>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="//jsonElement"/>
+                </args>
+            </payloadFactory>
+            <log level="full">
+                <property name="AFTER TRANFORM" value="property_value#############"/>
+            </log>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <send/>
+        </onComplete>
+    </aggregate>
+</sequence>

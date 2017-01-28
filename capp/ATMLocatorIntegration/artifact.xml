@@ -2,4 +2,16 @@
     <artifact name="ATMLocator" groupId="com.example.ATMLocatorIntegration.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/ATMLocator.xml</file>
     </artifact>
+    <artifact name="atmcoordinationLookupInSq" groupId="com.example.ATMLocatorIntegration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/atmcoordinationLookupInSq.xml</file>
+    </artifact>
+    <artifact name="atmLocatorResponseOutSeq" groupId="com.example.ATMLocatorIntegration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/atmLocatorResponseOutSeq.xml</file>
+    </artifact>
+    <artifact name="atmlocatorLookupInSq" groupId="com.example.ATMLocatorIntegration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/atmlocatorLookupInSq.xml</file>
+    </artifact>
+    <artifact name="zipcodeService" groupId="com.example.ATMLocatorIntegration.proxy-service" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/zipcodeService.xml</file>
+    </artifact>
 </artifacts>

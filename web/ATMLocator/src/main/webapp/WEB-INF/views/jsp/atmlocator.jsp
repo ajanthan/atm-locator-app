@@ -1,5 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <spring:url value="/resources/core/css/hello.js" var="coreJs" />
 <spring:url value="/resources/core/css/bootstrap.min.js"
@@ -39,13 +41,26 @@
 			<h1>${title}</h1>
 			<p>
 				<c:if test="${empty name}">
-			Welcome To The XYZ ATM Locator Service!
-		</c:if>
+			       Welcome To The XYZ ATM Locator Service! )
+		        </c:if>
 			</p>
 		</div>
 	</div>
 
 	<div class="container">
+	    <div class="row">
+	       <p>
+			Search ATM:<spring:url value="/findatm" var="userActionUrl" />
+			<form:form method="post" modelAttribute="findATMform"
+				action="${userActionUrl}">
+				Enter zip code:<form:input path="zipcode" type="text" />
+				Optional:<br>
+				longitude:<form:input path="lag" type="text" />
+				latitude:<form:input path="lat" type="text" />
+				<input type="submit" value="Submit" />
+			</form:form>
+			</p>
+	    </div>
 		<div class="row">
 			<div class="col-md-4">
 				<p>

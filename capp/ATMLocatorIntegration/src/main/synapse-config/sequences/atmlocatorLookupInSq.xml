@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="atmlocatorLookupInSq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <call>
+        <endpoint>
+            <http method="get" uri-template="http://localhost:8083/bankcode/{uri.var.zipcode}"/>
+        </endpoint>
+    </call>
+    <log level="full">
+        <property name="value" value="property_value#############"/>
+        <property expression="json-eval($.)" name="value"/>
+    </log>
+    <iterate expression="//jsonElement" id="atmLocatorItr" xmlns:ns3="http://org.apache.synapse/xsd" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+        <target>
+            <sequence>
+                <payloadFactory media-type="json">
+                    <format>{"code":"$1","zip":"$2"}</format>
+                    <args>
+                        <arg evaluator="xml" expression="//code"/>
+                        <arg evaluator="xml" expression="//zip"/>
+                    </args>
+                </payloadFactory>
+                <call>
+                    <endpoint>
+                        <http method="post" uri-template="http://localhost:8084/atmlocator/atminfo"/>
+                    </endpoint>
+                </call>
+                <loopback/>
+            </sequence>
+        </target>
+    </iterate>
+</sequence>
