@@ -41,7 +41,7 @@
 			<h1>${title}</h1>
 			<p>
 				<c:if test="${empty name}">
-			       Welcome To The XYZ ATM Locator Service! )
+			       Welcome To The XYZ ATM Locator Service! 
 		        </c:if>
 			</p>
 		</div>
@@ -69,6 +69,9 @@
 		<div class="row">
 			<div class="col-md-4">
 				<p>
+				<c:if test="${not empty error}">
+			       <b>${error}</b>
+		        </c:if>
 				<div style="overflow-x: auto;">
 					<div id="datalist"></div>
 				</div>

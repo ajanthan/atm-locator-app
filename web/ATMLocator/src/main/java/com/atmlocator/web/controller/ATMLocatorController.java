@@ -34,24 +34,30 @@ public class ATMLocatorController {
     public ModelAndView saveOrUpdateUser(@ModelAttribute("findATMform") FindATM findATM, BindingResult bindResult,
             Model model) {
         ModelAndView mod = new ModelAndView();
-        System.out.println(
-                "Submitted...#######.." + findATM.getZipcode() + "|" + findATM.getLag() + "|" + findATM.getLat());
-        mod.setViewName("atmlocator");
-        mod.addObject("msg", findATM.getZipcode());
-        String result = "";
-        if (!findATM.getZipcode().isEmpty()) {
-            System.out.println("find atm with zip code");
-            result = restTemplate.getForObject(INTEGRATION_SERVER_EP + "atmlocator/zip/" + findATM.getZipcode(),
-                    String.class, "42", "21");
-        } else if(!findATM.getLat().isEmpty() && !findATM.getLag().isEmpty()) {
-            System.out.println("find atm with coordination");
-            result = restTemplate.getForObject(INTEGRATION_SERVER_EP + "/atmlocator/coordination/" + findATM.getLag()+"/"+findATM.getLat(),
-                    String.class, "42", "21");
 
+        try {
+            System.out.println(
+                    "Submitted...#######.." + findATM.getZipcode() + "|" + findATM.getLag() + "|" + findATM.getLat());
+            mod.setViewName("atmlocator");
+            mod.addObject("msg", findATM.getZipcode());
+            String result = "";
+            if (!findATM.getZipcode().isEmpty()) {
+                System.out.println("find atm with zip code");
+                result = restTemplate.getForObject(INTEGRATION_SERVER_EP + "atmlocator/zip/" + findATM.getZipcode(),
+                        String.class, "42", "21");
+            } else if (!findATM.getLat().isEmpty() && !findATM.getLag().isEmpty()) {
+                System.out.println("find atm with coordination");
+                result = restTemplate.getForObject(
+                        INTEGRATION_SERVER_EP + "/atmlocator/coordination/" + findATM.getLag() + "/" + findATM.getLat(),
+                        String.class, "42", "21");
+
+            }
+
+            mod.addObject("mapResuls", result);
+            System.out.println("MS4J" + result);
+        } catch (Exception e) {
+            mod.addObject("error", "We are sorry, no XYZ bank ATMs are located for your search");
         }
-
-        mod.addObject("mapResuls", result);
-        System.out.println("MS4J" + result);
         return mod;
     }
 
@@ -61,11 +67,15 @@ public class ATMLocatorController {
         ModelAndView model = new ModelAndView();
         model.setViewName("atmlocator");
         model.addObject("msg", zipcode);
-        RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(INTEGRATION_SERVER_EP + "atmlocator/" + zipcode, String.class, "42",
-                "21");
-        model.addObject("mapResuls", result);
-        System.out.println("MS4J" + result);
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            String result = restTemplate.getForObject(INTEGRATION_SERVER_EP + "atmlocator/" + zipcode, String.class,
+                    "42", "21");
+            model.addObject("mapResuls", result);
+            System.out.println("MS4J" + result);
+        } catch (Exception e) {
+            model.addObject("error", "We are sorry, no XYZ bank ATMs are located for your search");
+        }
         return model;
 
     }
