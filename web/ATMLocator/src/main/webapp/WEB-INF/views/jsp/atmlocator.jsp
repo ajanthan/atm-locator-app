@@ -51,14 +51,19 @@
 	    <div class="row">
 	       <p>
 			Search ATM:<spring:url value="/findatm" var="userActionUrl" />
-			<form:form method="post" modelAttribute="findATMform"
-				action="${userActionUrl}">
-				Enter zip code:<form:input path="zipcode" type="text" />
-				Optional:<br>
-				longitude:<form:input path="lag" type="text" />
-				latitude:<form:input path="lat" type="text" />
-				<input type="submit" value="Submit" />
-			</form:form>
+			
+			<table>
+				<form:form method="post" modelAttribute="findATMform"
+					action="${userActionUrl}">
+					<td>Enter zip code:</td>
+					<td><form:input path="zipcode" type="text" /></td>
+					<td>longitude:</td>
+					<td><form:input path="lag" type="text" /></td>
+					<td>latitude:</td>
+					<td><form:input path="lat" type="text" /></td>
+					<td><input type="submit" value="Submit" /></td>
+				</form:form>
+			</table>
 			</p>
 	    </div>
 		<div class="row">

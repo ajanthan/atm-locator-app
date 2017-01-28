@@ -17,7 +17,7 @@
                 </format>
                 <args/>
             </payloadFactory>
-            <property name="messageType" scope="axis2" type="STRING" value="application/soap+xml"/>
+            <property name="messageType" scope="axis2" type="STRING" value="text/xml"/>
             <respond/>
         </inSequence>
         <outSequence/>
