@@ -65,10 +65,7 @@
 
 
 	<script type="text/javascript">
-		var json = $
-		{
-			mapResuls
-		};
+		var json = ${mapResuls};
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom : 12,
 			center : new google.maps.LatLng(37.7749, -122.4194),
@@ -99,11 +96,7 @@
 		$(document)
 				.ready(
 						function() {
-							var obj = $
-							{
-								mapResuls
-							}
-							;
+							var obj = ${mapResuls};
 							var table = '<table border="1"><thead><th width="40%">Address</th><th>Description</th></thead><tbody>';
 							//var obj = $.parseJSON(data);
 							$.each(obj, function() {

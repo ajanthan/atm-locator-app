@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ATMLocatorController {
 
-    private static final String INTEGRATION_SERVER_EP = "http://localhost:8081";
+    private static final String INTEGRATION_SERVER_EP = "http://localhost:8280/";
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
@@ -29,7 +29,7 @@ public class ATMLocatorController {
         model.setViewName("hello");
         model.addObject("msg", zipcode);
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject("http://192.168.99.1:8280/atmlocator/"+zipcode, String.class, "42", "21");
+        String result = restTemplate.getForObject(INTEGRATION_SERVER_EP+"atmlocator/"+zipcode, String.class, "42", "21");
         model.addObject("mapResuls", result);
         System.out.println("MS4J" + result);
         return model;
