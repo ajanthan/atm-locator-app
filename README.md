@@ -18,19 +18,28 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.at
 
 
 
-#Sample curl commands 
+#Bakend Services
+### SOAP  (coordinations supports (1.1/1.1 and 2.2/2.2)
 
-### http://localhost:8082/geolocation/zipcode/{longitude}/{latitude} 
+### http://localhost:8281/services/GeoService
 ```
-curl http://localhost:8082/geolocation/zipcode/11111/22222 
-
-{"country":"US","state":"CA","zipcode":"95321"}
+<soapenv:Envelope xmlns:geo="http://geoservice.sample.org" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                <soapenv:Header/>
+                <soapenv:Body>
+                    <p:getZipcode xmlns:p="http://geoservice.sample.org">
+                        <!--0 to 1 occurrence-->
+                        <xs:x xmlns:xs="http://geoservice.sample.org">1.1</xs:x>
+                        <!--0 to 1 occurrence-->
+                        <xs:y xmlns:xs="http://geoservice.sample.org">1.1</xs:y>
+                    </p:getZipcode>
+                </soapenv:Body>
+ </soapenv:Envelope>
 ```
 
 
 
 ### (Bank code) GET http://localhost:8083/bankcode/{zipcode}
-
+### MS4J
 e.g
 ```
 curl -X curl -X GET http://localhost:8083/bankcode/94111
@@ -43,7 +52,7 @@ curl -X curl -X GET http://localhost:8083/bankcode/94105
 ```
 
 ### (ATM Locator) POST http://localhost:8084/atmlocator/atminfo 
-
+###MS4j
 e.g
 ```
 curl -H "Content-Type: application/json" -X POST -d '{"code":"COO1","zip":"94111"}' http://localhost:8084/atmlocator/atminfo
