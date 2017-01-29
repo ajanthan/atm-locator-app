@@ -45,6 +45,13 @@
             <log level="full">
                 <property name="something wrong" value="zip code not available"/>
             </log>
+            <log/>
+            <payloadFactory media-type="json">
+                <format>{"error":"no records found"}</format>
+                <args/>
+            </payloadFactory>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="404"/>
+            <respond/>
         </else>
     </filter>
 </sequence>
