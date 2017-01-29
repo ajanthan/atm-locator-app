@@ -3,38 +3,48 @@
     <log/>
     <payloadFactory media-type="xml">
         <format>
-            <soapenv:Envelope xmlns:geo="http://geo.zipcode.wso2" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+            <soapenv:Envelope xmlns:geo="http://geoservice.sample.org" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
                 <soapenv:Header/>
                 <soapenv:Body>
-                    <geo:getZipCode>
-                        <geo:longitude>1.0</geo:longitude>
-                        <geo:latitude>2.0</geo:latitude>
-                    </geo:getZipCode>
+                    <p:getZipcode xmlns:p="http://geoservice.sample.org">
+                        <!--0 to 1 occurrence-->
+                        <xs:x xmlns:xs="http://geoservice.sample.org">$1</xs:x>
+                        <!--0 to 1 occurrence-->
+                        <xs:y xmlns:xs="http://geoservice.sample.org">$2</xs:y>
+                    </p:getZipcode>
                 </soapenv:Body>
             </soapenv:Envelope>
         </format>
-        <args/>
+        <args>
+            <arg evaluator="xml" expression="get-property('uri.var.longitude')"/>
+            <arg evaluator="xml" expression="get-property('uri.var.latitude')"/>
+        </args>
     </payloadFactory>
     <header name="Action" scope="default" value="urn:mediate"/>
     <property name="messageType" scope="axis2" type="STRING" value="text/xml"/>
     <call>
         <endpoint>
-            <address format="soap11" uri="http://localhost:8280/services/zipcodeService"/>
+            <address format="soap11" uri="http://localhost:8281/services/GeoService"/>
         </endpoint>
     </call>
-    <filter xmlns:ns="http://geo.zipcode.wso2" xpath="//ns:getZipCodeResponse/ns:return">
+    <log level="full">
+        <property name="xxxxxxxxx" value="GEO response"/>
+    </log>
+    <filter xmlns:ns="http://geoservice.sample.org" xpath="//ns:getZipcodeResponse/ns:return">
         <then>
             <log level="custom">
                 <property name="value" value="coordination valid zip code fond"/>
             </log>
-            <call>
-                <endpoint>
-                    <address format="soap12" uri="http://localhost:8280/services/zipcodeService"/>
-                </endpoint>
-            </call>
-            <property expression="//ns:getZipCodeResponse/ns:return" name="uri.var.zipcode" scope="default" type="STRING"/>
+            <property expression="//ns:getZipcodeResponse/ns:return" name="uri.var.zipcode" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="get-property('uri.var.zipcode')" name="zipcode"/>
+            </log>
             <sequence key="atmlocatorLookupInSq"/>
         </then>
-        <else/>
+        <else>
+            <log level="full">
+                <property name="something wrong" value="zip code not available"/>
+            </log>
+        </else>
     </filter>
 </sequence>
