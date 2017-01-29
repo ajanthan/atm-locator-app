@@ -1,10 +1,7 @@
 #Running Sample backend services with MS4J
 
 
-### Geo location service starts on port 8081
-```
-java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.geo-1.0.0-SNAPSHOT.jar
-```
+
 
 ### Bank code service starts on port 8083
 ```
