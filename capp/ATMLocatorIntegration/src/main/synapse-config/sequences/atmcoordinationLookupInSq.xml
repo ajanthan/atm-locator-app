@@ -24,7 +24,7 @@
     <property name="messageType" scope="axis2" type="STRING" value="text/xml"/>
     <call>
         <endpoint>
-            <address format="soap11" uri="http://localhost:8281/services/GeoService"/>
+            <address format="soap11" uri="http://localhost:8280/services/GeoService"/>
         </endpoint>
     </call>
     <log level="full">

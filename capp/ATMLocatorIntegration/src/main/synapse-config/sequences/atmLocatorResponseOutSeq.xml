@@ -4,28 +4,21 @@
         <property name="RESPONSE-ATM-LOCATOR" value="property_value#############"/>
         <property expression="json-eval($.)" name="RESPONSE-ATM-LOCATOR"/>
     </log>
-    <property name="rootElement" scope="default">
-        <rootElement xmlns=""/>
+    <property name="enclosingProp" scope="default">
+        <jsonArray xmlns=""/>
     </property>
     <aggregate id="atmLocatorItr">
         <completeCondition>
             <messageCount max="-1" min="-1"/>
         </completeCondition>
-        <onComplete expression="//jsonElement" xmlns:ns3="http://org.apache.synapse/xsd" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+        <onComplete enclosingElementProperty="enclosingProp" expression="//jsonElement" xmlns:ns3="http://org.apache.synapse/xsd" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
             <log level="full">
-                <property name="AGGREGRATE" value="property_value#############"/>
+                <property name="AGGREGRATE" value="with enclose property"/>
             </log>
-            <payloadFactory media-type="xml">
-                <format>
-                    <jsonArray xmlns="">$1</jsonArray>
-                </format>
-                <args>
-                    <arg evaluator="xml" expression="//jsonElement"/>
-                </args>
-            </payloadFactory>
             <log level="full">
                 <property name="AFTER TRANFORM" value="property_value#############"/>
             </log>
+            <property action="remove" name="NO_ENTITY_BODY" scope="axis2"/>
             <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
             <send/>
         </onComplete>
