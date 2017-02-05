@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence name="atmlocatorLookupInSq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <call>
-        <endpoint>
-            <http method="get" uri-template="http://localhost:8083/bankcode/{uri.var.zipcode}"/>
-        </endpoint>
+        <endpoint key="bankcodeEP"/>
     </call>
     <filter xpath="//jsonElement">
         <then>
@@ -18,9 +16,7 @@
                             </args>
                         </payloadFactory>
                         <call>
-                            <endpoint>
-                                <http method="post" uri-template="http://localhost:8084/atmlocator/atminfo"/>
-                            </endpoint>
+                            <endpoint key="atmInfoEP"/>
                         </call>
                         <loopback/>
                     </sequence>
