@@ -64,34 +64,50 @@ public class ATMLocatorService {
 
     public ATMLocatorService() {
         super();
-        ATMLocation bankCode1 = new ATMLocation("COO1","5 mi · 100 Pine St(877) 242-7372", "37.776414","-122.413445","94111","XYZ ATM A Open 24 /Long lines and dismissive bankers");
-        ATMLocation bankCode2 = new ATMLocation("COO1","165 Jackson St (800) 939935", "37.790795","-122.451382","94111","XYZ ATM B /Very bad customer service. If you want just cash, the service is ok but if you need to talk with a representative be ready for impolines and rudeness.");
-        ATMLocation bankCode3 = new ATMLocation("COO1","700 Market St (415) 274-3500", "37.788353","-122.431469","94111","XYZ ATM C /Good service");
+        ATMLocation bankCode1_c1 = new ATMLocation("COO1","5 mi · 100 Pine St(877) 242-7372", "37.776414","-122.413445","94111","XYZ ATM A description.....");
+        ATMLocation bankCode2_c1 = new ATMLocation("COO1","165 Jackson St (800) 939935", "37.790795","-122.451382","94111","XYZ ATM B description.....");
+        ATMLocation bankCode3_c1 = new ATMLocation("COO1","700 Market St (415) 274-3500", "37.788353","-122.431469","94111","XYZ ATM C  description....");
         
         //37.774107, -122.403231
         //37.761555, -122.399969
         //37.753344, -122.396278
-        ATMLocation bankCode4 = new ATMLocation("COO2","Mission St(415) 536-3815", "37.774107","-122.403231","94105","XYZ ATM G / If this branch is the concept of what a  branch is going to look like, then it is going to be a bleak future. It's a really bad joke to Chase customers.");
-        ATMLocation bankCode5 = new ATMLocation("COO2","2500 Mission St (415) 647-8069", "37.761555","-122.39996","94105","XYZ ATM H / Awsome!!!!");
-        ATMLocation bankCode6 = new ATMLocation("COO2","3749 Buchanan St", "37.753344","-122.396278","94105","XYZ ATM Y / eware... this branch is not to be trusted!");
+        ATMLocation bankCode1_c2 = new ATMLocation("COO2","Mission St(415) 536-3815", "37.774107","37.796193", "-122.441597","XYZ ATM D description....");
+        ATMLocation bankCode2_c2 = new ATMLocation("COO2","2500 Mission St (415) 647-8069", "37.803789", "-122.409325","94105","XYZ ATM Edescription....");
+        ATMLocation bankCode3_c2= new ATMLocation("COO2","3749 Buchanan St", "37.802433", "-122.455673","94105","XYZ ATM F description....");
        
         
-        List<ATMLocation> bankCodeArray = new ArrayList<>();
-        bankCodeArray.add(bankCode1);
-        bankCodeArray.add(bankCode2);
-        bankCodeArray.add(bankCode3);
-        coderepo.put("COO1", bankCodeArray);
+        ATMLocation bankCode1_c3 = new ATMLocation("COO3","Mission blvd (415) 536-3815", "37.778585", "-122.389412","94105","XYZ ATM H description....");
+        ATMLocation bankCode2_c3 = new ATMLocation("COO3","600 Temple St (415) 647-8069", "37.766888", "-122.401085","94105","XYZ ATM I description....");
+        ATMLocation bankCode3_c3= new ATMLocation("COO3","3749 Dunk St", "37.842570", "-122.4536137","94105","XYZ ATM J description....");
+       
+        ATMLocation bankCode1_c4 = new ATMLocation("COO4","Trump St(415) 900-3815", "37.756846", "-122.396622","94105","XYZ ATM K description....");
+        ATMLocation bankCode2_c4 = new ATMLocation("COO4","2500 Bush St (415) 567-8069", "37.767702", "-122.387009","94105","XYZ ATM L description....");
+        ATMLocation bankCode3_c4= new ATMLocation("COO4","3749 Frank St", "37.768788", "-122.390099","94105","XYZ ATM M description....");
+       
         
-        List<ATMLocation> bankCodeArray2 = new ArrayList<>();
-        bankCodeArray2.add(bankCode4);
-        bankCodeArray2.add(bankCode5);
-        coderepo.put("COO3", bankCodeArray2);
+        List<ATMLocation> bankCodeArrayc1 = new ArrayList<>();
+        bankCodeArrayc1.add(bankCode1_c1);
+        bankCodeArrayc1.add(bankCode2_c1);
+        bankCodeArrayc1.add(bankCode3_c1);
+        coderepo.put("COO1", bankCodeArrayc1);
         
-        List<ATMLocation> bankCodeArray3 = new ArrayList<>();
-        bankCodeArray3.add(bankCode4);
-        bankCodeArray3.add(bankCode5);
-        bankCodeArray3.add(bankCode6);
-        coderepo.put("COO4", bankCodeArray3);
+        List<ATMLocation> bankCodeArrayc2 = new ArrayList<>();
+        bankCodeArrayc2.add(bankCode1_c2);
+        bankCodeArrayc2.add(bankCode2_c2);
+        bankCodeArrayc2.add(bankCode3_c2);
+        coderepo.put("COO2", bankCodeArrayc2);
+        
+        List<ATMLocation> bankCodeArrayc3 = new ArrayList<>();
+        bankCodeArrayc3.add(bankCode1_c3);
+        bankCodeArrayc3.add(bankCode2_c3);
+        bankCodeArrayc3.add(bankCode3_c3);
+        coderepo.put("COO3", bankCodeArrayc3);
+        
+        List<ATMLocation> bankCodeArrayc4 = new ArrayList<>();
+        bankCodeArrayc4.add(bankCode1_c4);
+        bankCodeArrayc4.add(bankCode2_c4);
+        bankCodeArrayc4.add(bankCode3_c4);
+        coderepo.put("COO4", bankCodeArrayc4);
     }
 
     //curl -H "Content-Type: application/json" -X POST -d '{"code":"COO2","zip":"94105"}' http://localhost:8084/atmlocator/atminfo

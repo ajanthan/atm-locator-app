@@ -41,11 +41,11 @@ public class BankCodeService {
 
     public BankCodeService() {
         super();
-       List<BankCode> bankCodes = new ArrayList<>();
+       List<BankCode> bankCodes1 = new ArrayList<>();
        BankCode code1 = new BankCode("COO1","94111");
        BankCode code2 = new BankCode("COO2","94111");
-       bankCodes.add(code1);
-       bankCodes.add(code2);
+       bankCodes1.add(code1);
+       bankCodes1.add(code2);
        
        List<BankCode> bankCodes2 = new ArrayList<>();
        BankCode code3 = new BankCode("COO3","94105");
@@ -53,7 +53,7 @@ public class BankCodeService {
        bankCodes2.add(code3);
        bankCodes2.add(code4);
        
-       coderepo.put("94111", bankCodes);
+       coderepo.put("94111", bankCodes1);
        coderepo.put("94105", bankCodes2);
        
     }
@@ -63,7 +63,7 @@ public class BankCodeService {
     @Produces({ "application/json", "text/xml" })
     public Response bankcodes(@PathParam("zipcode") String zipcode) {
         // TODO: Implementation for HTTP GET request
-        System.out.println("retriving bank codes !!! json array" +zipcode);
+        System.out.println("retriving bank codes !!! json array" +zipcode +"|"+coderepo.get(zipcode));
         return Response.ok().entity(coderepo.get(zipcode)).cookie(new NewCookie("zipcode", zipcode))
                 .build();
 
