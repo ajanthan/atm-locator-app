@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="GeoEP" groupId="com.example.ESBCommonIntegration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/GeoEP.xml</file>
+    </artifact>
+    <artifact name="bankcodeEP" groupId="com.example.ESBCommonIntegration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/bankcodeEP.xml</file>
+    </artifact>
+    <artifact name="atmInfoEP" groupId="com.example.ESBCommonIntegration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/atmInfoEP.xml</file>
+    </artifact>
+</artifacts>
