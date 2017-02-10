@@ -1,0 +1,4 @@
+org/sample/geoservice/Application.class
+org/sample/geoservice/Coordination.class
+org/sample/geoservice/ZipCodeResponse.class
+org/sample/geoservice/GeoService.class
