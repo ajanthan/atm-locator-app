@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence name="atmcoordinationLookupInSq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <log/>
+    <property action="remove" name="Accept" scope="transport"/>
     <payloadFactory media-type="xml">
         <format>
             <soapenv:Envelope xmlns:geo="http://geoservice.sample.org" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
