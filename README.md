@@ -13,6 +13,9 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ba
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.atmlocator-1.0.0-SNAPSHOT.jar
 ```
 
+### Geo Locator
+java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws.geoservice-1.0.0-SNAPSHOT.jar
+
 
 
 #Bakend Services
@@ -66,15 +69,19 @@ http://IE-6-HOST:IE-6-PORT/atmlocator-1.0/
 curl -X GET http://dushantest-bankcodeservice-1-0-0.wso2apps.com:80/bankcode/94111
 
 
-
+```
 curl -H "Content-Type: application/json" -X POST -d '{"code":"COO1","zip":"94111"}' http://dushantest-atminfoservice-1-0-0.wso2apps.com/atmlocator/atminfo
 [{"code":"COO1","title":"XYZ ATM A","lat":"37.776414","lng":"-122.413445","zip":"94111","description":"XYZ ATM A"},{"code":"COO1","title":"XYZ ATM B","lat":"37.790795","lng":"-122.451382","zip":"94111","description":"XYZ ATM B"},{"code":"COO1","title":"XYZ ATM C","lat":"37.788353","lng":"-122.431469","zip":"94111","description":"XYZ ATM C"}]
-
+```
 
 application XML
 http://dushantest-geoservice-1-0-0.wso2apps.com/geoservice/zipcode
-
+```
 <coordination>
    <lag>1.1</lag>
    <lat>1.1</lat>
 </coordination>
+```
+
+# Test
+http://dushantest-atmlocatorintegratorcapp-1-0-0.wso2apps.com/atmlocator/coordination/1.1/1.1
