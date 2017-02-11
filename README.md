@@ -16,23 +16,15 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.at
 
 
 #Bakend Services
-### SOAP  (coordinations supports (1.1/1.1 and 2.2/2.2)
+### POX service  (coordinations supports (1.1/1.1 and 2.2/2.2)
 
-### http://localhost:8281/services/GeoService
+### http://localhost:8085/geoservice/zipcode
 ```
-<soapenv:Envelope xmlns:geo="http://geoservice.sample.org" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-                <soapenv:Header/>
-                <soapenv:Body>
-                    <p:getZipcode xmlns:p="http://geoservice.sample.org">
-                        <!--0 to 1 occurrence-->
-                        <xs:x xmlns:xs="http://geoservice.sample.org">1.1</xs:x>
-                        <!--0 to 1 occurrence-->
-                        <xs:y xmlns:xs="http://geoservice.sample.org">1.1</xs:y>
-                    </p:getZipcode>
-                </soapenv:Body>
- </soapenv:Envelope>
+<coordination>
+   <lag>1.1</lag>
+   <lat>1.1</lat>
+</coordination>
 ```
-
 
 
 ### (Bank code) GET http://localhost:8083/bankcode/{zipcode}
@@ -66,3 +58,23 @@ http://ESB-HOST:ESB-HOST/atmlocator/94111
 http://IE-6-HOST:IE-6-PORT/atmlocator-1.0/
 ```
 ![Alt text](/images/web-view.png?raw=true "Web Search View")
+
+
+
+# Integration cloud
+
+curl -X GET http://dushantest-bankcodeservice-1-0-0.wso2apps.com:80/bankcode/94111
+
+
+
+curl -H "Content-Type: application/json" -X POST -d '{"code":"COO1","zip":"94111"}' http://dushantest-atminfoservice-1-0-0.wso2apps.com/atmlocator/atminfo
+[{"code":"COO1","title":"XYZ ATM A","lat":"37.776414","lng":"-122.413445","zip":"94111","description":"XYZ ATM A"},{"code":"COO1","title":"XYZ ATM B","lat":"37.790795","lng":"-122.451382","zip":"94111","description":"XYZ ATM B"},{"code":"COO1","title":"XYZ ATM C","lat":"37.788353","lng":"-122.431469","zip":"94111","description":"XYZ ATM C"}]
+
+
+application XML
+http://dushantest-geoservice-1-0-0.wso2apps.com/geoservice/zipcode
+
+<coordination>
+   <lag>1.1</lag>
+   <lat>1.1</lat>
+</coordination>

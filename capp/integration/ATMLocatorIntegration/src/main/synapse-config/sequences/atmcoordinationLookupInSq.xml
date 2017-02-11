@@ -4,17 +4,10 @@
     <property action="remove" name="Accept" scope="transport"/>
     <payloadFactory media-type="xml">
         <format>
-            <soapenv:Envelope xmlns:geo="http://geoservice.sample.org" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-                <soapenv:Header/>
-                <soapenv:Body>
-                    <p:getZipcode xmlns:p="http://geoservice.sample.org">
-                        <!--0 to 1 occurrence-->
-                        <xs:x xmlns:xs="http://geoservice.sample.org">$1</xs:x>
-                        <!--0 to 1 occurrence-->
-                        <xs:y xmlns:xs="http://geoservice.sample.org">$2</xs:y>
-                    </p:getZipcode>
-                </soapenv:Body>
-            </soapenv:Envelope>
+            <coordination xmlns="">
+                <lag>$1</lag>
+                <lat>$2</lat>
+            </coordination>
         </format>
         <args>
             <arg evaluator="xml" expression="get-property('uri.var.longitude')"/>
@@ -22,19 +15,19 @@
         </args>
     </payloadFactory>
     <header name="Action" scope="default" value="urn:mediate"/>
-    <property name="messageType" scope="axis2" type="STRING" value="text/xml"/>
+    <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
     <call>
         <endpoint key="GeoEP"/>
     </call>
     <log level="full">
         <property name="xxxxxxxxx" value="GEO response"/>
     </log>
-    <filter xmlns:ns="http://geoservice.sample.org" xpath="//ns:getZipcodeResponse/ns:return">
+    <filter xpath="//zipCodeResponse/zip">
         <then>
             <log level="custom">
                 <property name="value" value="coordination valid zip code fond"/>
             </log>
-            <property expression="//ns:getZipcodeResponse/ns:return" name="uri.var.zipcode" scope="default" type="STRING"/>
+            <property expression="//zipCodeResponse/zip" name="uri.var.zipcode" scope="default" type="STRING"/>
             <log level="custom">
                 <property expression="get-property('uri.var.zipcode')" name="zipcode"/>
             </log>
