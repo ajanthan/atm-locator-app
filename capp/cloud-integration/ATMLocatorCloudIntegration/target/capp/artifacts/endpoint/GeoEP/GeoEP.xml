@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="GeoEP" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="post" uri-template="http://dushantest-geoservice-1-0-0.wso2apps.com:80/geoservice/zipcode"/>
+</endpoint>

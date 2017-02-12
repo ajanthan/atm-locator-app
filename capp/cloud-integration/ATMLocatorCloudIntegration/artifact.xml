@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="ATMLocator" groupId="com.example.ATMLocatorCloudIntegration.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ATMLocator.xml</file>
+    </artifact>
+    <artifact name="atmcoordinationLookupInSq" groupId="com.example.ATMLocatorCloudIntegration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/atmcoordinationLookupInSq.xml</file>
+    </artifact>
+    <artifact name="atmLocatorResponseOutSeq" groupId="com.example.ATMLocatorCloudIntegration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/atmLocatorResponseOutSeq.xml</file>
+    </artifact>
+    <artifact name="atmlocatorLookupInSq" groupId="com.example.ATMLocatorCloudIntegration.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/atmlocatorLookupInSq.xml</file>
+    </artifact>
+    <artifact name="atmInfoEP" groupId="com.example.ATMLocatorCloudIntegration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/atmInfoEP.xml</file>
+    </artifact>
+    <artifact name="bankcodeEP" groupId="com.example.ATMLocatorCloudIntegration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/bankcodeEP.xml</file>
+    </artifact>
+    <artifact name="GeoEP" groupId="com.example.ATMLocatorCloudIntegration.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/GeoEP.xml</file>
+    </artifact>
+</artifacts>

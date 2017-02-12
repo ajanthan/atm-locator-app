@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="atmlocatorLookupInSq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <call>
+        <endpoint key="bankcodeEP"/>
+    </call>
+    <filter xpath="//jsonElement">
+        <then>
+            <iterate expression="//jsonElement" id="atmLocatorItr" xmlns:ns3="http://org.apache.synapse/xsd" xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope">
+                <target>
+                    <sequence>
+                        <payloadFactory media-type="json">
+                            <format>{"code":"$1","zip":"$2"}</format>
+                            <args>
+                                <arg evaluator="xml" expression="//code"/>
+                                <arg evaluator="xml" expression="//zip"/>
+                            </args>
+                        </payloadFactory>
+                        <call>
+                            <endpoint key="atmInfoEP"/>
+                        </call>
+                        <loopback/>
+                    </sequence>
+                </target>
+            </iterate>
+        </then>
+        <else>
+            <log/>
+            <payloadFactory media-type="json">
+                <format>{"error":"no records found"}</format>
+                <args/>
+            </payloadFactory>
+            <property name="HTTP_SC" scope="axis2" type="STRING" value="404"/>
+            <respond/>
+        </else>
+    </filter>
+    <log level="full">
+        <property name="value" value="property_value#############"/>
+        <property expression="json-eval($.)" name="value"/>
+    </log>
+</sequence>
