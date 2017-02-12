@@ -85,3 +85,6 @@ http://dushantest-geoservice-1-0-0.wso2apps.com/geoservice/zipcode
 
 # Test
 http://dushantest-atmlocatorintegratorcapp-1-0-0.wso2apps.com/atmlocator/coordination/1.1/1.1
+
+#Web
+http://dushantest-atmlocatorweb-1-0-0.wso2apps.com/
