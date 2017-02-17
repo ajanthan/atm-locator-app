@@ -9,6 +9,10 @@
 - Deploy Common and ATMLocationIntegrationComposite Carbon applications to the EI 6.0
 - Buld https://github.com/dushansachinda/wso2con/tree/master/web/ATMLocator deploy to EI 6.0 under web applications
 
+## Build Microservices
+- Go to https://github.com/dushansachinda/wso2con/tree/master/services
+- Build 'org.sample.atmlocator', 'org.sample.bankcode', 'org.sample.ws.geo' respectively
+
 ## Running Sample backend services with MS4J
 
 ### Bank code service starts on port 8083
