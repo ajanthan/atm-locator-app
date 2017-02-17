@@ -5,8 +5,8 @@
 - Buid common project with following command.
 - For Integration cloud build  "mvn clean install -Datm.info.host=dushantest-atminfoservice.wso2apps.com -Datm.info.port=80 -Dbankcode.host=dushantest-bankcodeservice.wso2apps.com -Dbankcode.port=80 -Dgeo.service.host=dushantest-geoservice-1-0-0.wso2apps.com -Dgeo.service.port=80"
 - Build ATMLocationIntegrationComposite carbon application which is having Integration specific configuration
-##Running Sample backend services with MS
-4J
+
+## Running Sample backend services with MS4J
 
 ### Bank code service starts on port 8083
 ```
