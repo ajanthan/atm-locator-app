@@ -27,7 +27,7 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ba
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.atmlocator-1.0.0-SNAPSHOT.jar
 ```
 
-### Geo Locator
+### Geo Locator on port 8085
 ```
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws.geoservice-1.0.0-SNAPSHOT.jar
 ```
