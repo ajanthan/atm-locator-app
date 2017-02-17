@@ -3,19 +3,10 @@
 - Build common carbon application which is having environmental specific configuration such as endpoints
 - Go To 'CommonIntegrationMvnProj'
 - Buid common project with following command.
-- 
-```
-mvn clean install -Datm.info.host=localhost -Datm.info.port=8084 -Dbankcode.host=localhost -Dbankcode.port=8083 -Dgeo.service.host=localhost -Dgeo.service.port=8085
-```
-- For Integration cloud build
-```
-mvn clean install -Datm.info.host=dushantest-atminfoservice.wso2apps.com -Datm.info.port=80 -Dbankcode.host=dushantest-bankcodeservice.wso2apps.com -Dbankcode.port=80 -Dgeo.service.host=dushantest-geoservice-1-0-0.wso2apps.com -Dgeo.service.port=80
-```
--- Build ATMLocationIntegrationComposite carbon application which is having Integration specific configuration
-
-
-```
-##Running Sample backend services with MS4J
+- For Integration cloud build  "mvn clean install -Datm.info.host=dushantest-atminfoservice.wso2apps.com -Datm.info.port=80 -Dbankcode.host=dushantest-bankcodeservice.wso2apps.com -Dbankcode.port=80 -Dgeo.service.host=dushantest-geoservice-1-0-0.wso2apps.com -Dgeo.service.port=80"
+- Build ATMLocationIntegrationComposite carbon application which is having Integration specific configuration
+##Running Sample backend services with MS
+4J
 
 ### Bank code service starts on port 8083
 ```
