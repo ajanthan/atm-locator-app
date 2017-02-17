@@ -1,5 +1,5 @@
 # Setup
-## Carbon Applications
+## Buld Carbon Applications
 - Build common carbon application which is having environmental specific configuration such as endpoints
 - Go To 'CommonIntegrationMvnProj'
 - Buid common project with following command.
@@ -7,6 +7,8 @@
 - For Integration cloud:  "mvn clean install -Datm.info.host=dushantest-atminfoservice.wso2apps.com -Datm.info.port=80 -Dbankcode.host=dushantest-bankcodeservice.wso2apps.com -Dbankcode.port=80 -Dgeo.service.host=dushantest-geoservice-1-0-0.wso2apps.com -Dgeo.service.port=80"
 - Build ATMLocationIntegrationComposite carbon application which is having Integration specific configuration
 - Deploy Common and ATMLocationIntegrationComposite Carbon applications to the EI 6.0
+
+## Build Web Application
 - Buld https://github.com/dushansachinda/wso2con/tree/master/web/ATMLocator deploy to EI 6.0 under web applications
 
 ## Build Microservices
