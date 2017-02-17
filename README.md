@@ -34,7 +34,7 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws
 
 
 ## Testing Bakend services
-### POX service  (coordinations supports (1.1/1.1 and 2.2/2.2)
+### (coordinations)
 
 http://localhost:8085/geoservice/zipcode
 ```
@@ -58,7 +58,7 @@ curl -X curl -X GET http://localhost:8083/bankcode/94105
 [{"code":"COO3","zip":"94105"},{"code":"COO4","zip":"94105"}]
 ```
 
-### (ATM Locator) 
+### (ATM Locator Info) 
 http://localhost:8084/atmlocator/atminfo 
 e.g
 ```
