@@ -17,17 +17,17 @@
 
 ## Running Sample backend services with MS4J
 
-### Bank code service starts on port 8083
+### Bank code service [8083]
 ```
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.bankcode-1.0.0-SNAPSHOT.jar
 ```
 
-### ATM Locator service starts on port 8084
+### ATM Locator service [8084]
 ```
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.atmlocator-1.0.0-SNAPSHOT.jar
 ```
 
-### Geo Locator on port 8085
+### Geo Locator [8085]
 ```
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws.geoservice-1.0.0-SNAPSHOT.jar
 ```
