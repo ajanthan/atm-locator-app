@@ -35,8 +35,8 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws
 
 ## Testing Bakend services
 ### POX service  (coordinations supports (1.1/1.1 and 2.2/2.2)
-### MS4J
-### http://localhost:8085/geoservice/zipcode
+
+http://localhost:8085/geoservice/zipcode
 ```
 <coordination>
    <lag>1.1</lag>
@@ -45,8 +45,8 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws
 ```
 
 
-### (Bank code) GET http://localhost:8083/bankcode/{zipcode}
-### MS4J
+### (Bank code) 
+http://localhost:8083/bankcode/{zipcode}
 e.g
 ```
 curl -X curl -X GET http://localhost:8083/bankcode/94111
@@ -58,8 +58,8 @@ curl -X curl -X GET http://localhost:8083/bankcode/94105
 [{"code":"COO3","zip":"94105"},{"code":"COO4","zip":"94105"}]
 ```
 
-### (ATM Locator) POST http://localhost:8084/atmlocator/atminfo 
-###MS4j
+### (ATM Locator) 
+http://localhost:8084/atmlocator/atminfo 
 e.g
 ```
 curl -H "Content-Type: application/json" -X POST -d '{"code":"COO1","zip":"94111"}' http://localhost:8084/atmlocator/atminfo
