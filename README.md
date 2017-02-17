@@ -14,13 +14,14 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.at
 ```
 
 ### Geo Locator
+```
 java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws.geoservice-1.0.0-SNAPSHOT.jar
-
+```
 
 
 #Bakend Services
 ### POX service  (coordinations supports (1.1/1.1 and 2.2/2.2)
-
+### MS4J
 ### http://localhost:8085/geoservice/zipcode
 ```
 <coordination>
