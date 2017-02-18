@@ -1,4 +1,5 @@
 # Setup
+![Alt text](/images/diagram.png?raw=true "Integration View")
 ## Buld Carbon Applications
 - Build common carbon application which is having environmental specific configuration such as endpoints
 - Go To 'CommonIntegrationMvnProj'
