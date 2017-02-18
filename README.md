@@ -38,11 +38,13 @@ java -jar  -Dtransports.netty.conf=./netty-transports.yml ./target/org.sample.ws
 ### (coordinations)
 
 http://localhost:8085/geoservice/zipcode
+e.g
 ```
-<coordination>
-   <lag>1.1</lag>
-   <lat>1.1</lat>
-</coordination>
+curl -H "Content-Type: application/xml" -X POST -d '<coordination><lag>1.1</lag><lat>1.1</lat></coordination>' http://localhost:8085/geoservice/zipcode
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<zipCodeResponse>
+    <zip>94111</zip>
+</zipCodeResponse>
 ```
 
 
