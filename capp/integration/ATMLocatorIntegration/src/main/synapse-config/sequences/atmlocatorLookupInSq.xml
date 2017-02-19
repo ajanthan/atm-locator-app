@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sequence name="atmlocatorLookupInSq" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+<sequence name="atmlocatorLookupInSq" statistics="enable" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
     <call>
         <endpoint key="bankcodeEP"/>
     </call>
@@ -18,7 +18,8 @@
                         <call>
                             <endpoint key="atmInfoEP"/>
                         </call>
-                        <loopback/>
+                        <!--  loopback/ -->
+                        <sequence key="atmLocatorResponseOutSeq"/>
                     </sequence>
                 </target>
             </iterate>
